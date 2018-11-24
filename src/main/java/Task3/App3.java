@@ -1,7 +1,9 @@
 package Task3;
 
-import java.util.Collections;
-import java.util.HashMap;
+import java.time.Instant;
+import java.util.*;
+
+import static javafx.scene.input.KeyCode.V;
 
 public class App3 {
     public static void main(String[] args) {
@@ -16,7 +18,19 @@ public class App3 {
            else {numChars.put(charAt,numChars.get(charAt)+1);}
        }
         System.out.println(numChars);
+        Map.Entry<Character, Integer> maxEntry = null;
 
+        for (Map.Entry<Character, Integer> entry : numChars.entrySet()) {
+
+            if (maxEntry == null
+                    || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+                maxEntry = entry;
+            }
+        }
+
+        System.out.println(maxEntry);
+
+}
 
     }
-}
+
